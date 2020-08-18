@@ -1,0 +1,1350 @@
+<html>
+  <head>
+    <title>Quidax Book Club</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+
+    <!-- Scripts -->
+    <script src="./assets/js/flickity.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/carouselOverlay.js"></script>
+    <script src="./assets/js/autocomplete.js"></script>
+
+    <!-- Stylesheets-->
+    <link rel="stylesheet" href="./assets/stylesheets/main.css" />
+    <link rel="stylesheet" href="./assets/stylesheets/flickity.css" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="nav-mobile__overlay"></div>
+    <!-- Header -->
+    <div class="header">
+      <div class="header-container">
+        <img
+          src="./assets/images/icons/hamburger.svg"
+          class="nav-menu-icon center-xy"
+          onclick="toggleNav()"
+        />
+        <img src="./assets/images/icons/logo.svg" class="logo center-xy" />
+        <div class="header-text">
+          <h1 class="title">Quidax Book Club</h1>
+          <p class="sub">Admin</p>
+        </div>
+
+        <!-- Search bar -->
+
+        <div class="search-bar">
+          <input
+            id="search-input"
+            type="text"
+            placeholder="Search books, genres, authors, etc."
+            autocomplete="off"
+          />
+          <button type="submit" class="submit-button" onclick="toggleSearch()">
+            <img src="./assets/images/icons/search.svg" />
+          </button>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions center-xy">
+          <div class="action center-xy">
+            <img src="./assets/images/icons/books.svg" />
+          </div>
+          <div class="action notification center-xy">
+            <div class="badge-icon center-xy">
+              <p class="count">3</p>
+            </div>
+            <img src="./assets/images/icons/notification.svg" />
+          </div>
+        </div>
+
+        <!-- User -->
+        <div class="user-thumbnail center-xy">
+          <img src="./assets/images/user.jpg" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="nav nav-mobile">
+      <!-- Mobile Nav Header -->
+      <div class="nav-mobile__back center-xy" onclick="toggleNav()">
+        <img src="./assets/images/icons/back.svg" />
+      </div>
+      <div class="nav-mobile-header__container center-xy">
+        <img
+          src="./assets/images/icons/logo.svg"
+          class="logo center-xy nav-mobile-logo"
+        />
+        <div class="nav-mobile-header">
+          <h1 class="title">Quidax Book Club</h1>
+          <p class="sub">Admin</p>
+        </div>
+      </div>
+
+      <!-- Nav section -->
+      <div class="nav-section">
+        <div class="nav-link">
+          <a class="nav-link-text active">Home</a>
+        </div>
+        <div class="nav-link">
+          <a class="nav-link-text">Profile</a>
+        </div>
+        <div class="nav-link">
+          <a class="nav-link-text">Notifications</a>
+          <a class="nav-link-figure badge">3</a>
+        </div>
+      </div>
+      <hr class="divider" />
+
+      <!-- Nav section -->
+      <div class="nav-section">
+        <h1 class="nav-section-title">Explore</h1>
+        <div class="nav-link">
+          <a class="nav-link-text">Books</a>
+          <a class="nav-link-figure">273</a>
+        </div>
+        <div class="nav-link">
+          <a class="nav-link-text">Genres</a>
+          <a class="nav-link-figure">42</a>
+        </div>
+        <div class="nav-link">
+          <a class="nav-link-text">Authors</a>
+          <a class="nav-link-figure">106</a>
+        </div>
+      </div>
+      <hr class="divider" />
+
+      <!-- Nav section -->
+      <div class="nav-section">
+        <h1 class="nav-section-title">My Books</h1>
+        <div class="nav-link">
+          <a class="nav-link-text">Queued</a>
+          <a class="nav-link-figure">3</a>
+        </div>
+        <div class="nav-link">
+          <a class="nav-link-text">Currently Borrowed</a>
+          <a class="nav-link-figure">0</a>
+        </div>
+        <div class="nav-link">
+          <a class="nav-link-text">Favorites</a>
+          <a class="nav-link-figure">19</a>
+        </div>
+        <div class="nav-link">
+          <a class="nav-link-text">History</a>
+        </div>
+      </div>
+      <hr class="divider" />
+
+      <!-- Nav section -->
+      <div class="nav-section">
+        <h1 class="nav-section-title">Admin</h1>
+        <div class="nav-link">
+          <a class="nav-link-text">Book Requests</a>
+          <a class="nav-link-figure badge">2</a>
+        </div>
+        <div class="nav-link">
+          <a class="nav-link-text">Members</a>
+          <a class="nav-link-figure">34</a>
+        </div>
+        <div class="nav-link">
+          <a class="nav-link-text ml-2">Library Settings</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Screen -->
+    <div class="main-screen">
+      <div class="section">
+        <div class="section-header container">
+          <h1 class="section-title">Featured Books</h1>
+          <hr class="divider" />
+        </div>
+
+        <!-- Carousel -->
+        <div
+          class="carousel"
+          data-flickity='{ "cellAlign": "left", "contain": true, "imagesLoaded": true, "percentPosition": false, "freeScroll": true, "arrowShape": "M 5,25 30.5,5 30.5,45 Z"}'
+        >
+          <!-- Cells -->
+          <div class="carousel-cell" id="#cell-1">
+            <img class="img" src="./assets/images/book-1.jpg" />
+            <div class="carousel-cell__overlay" onclick="closeOverlays()">
+              <img
+                src="./assets/images/icons/close-details.svg"
+                class="close-overlay"
+              />
+              <div class="carousel-cell__overlay-text">
+                <p class="status green">Available</p>
+                <p class="title">Big Magic</p>
+                <p class="details truncate">
+                  Elizabeth Gilbert <br />
+                  2014
+                </p>
+                <div class="category">
+                  <p>Genre: Motivational</p>
+                  <p>Label: Creative, Self-help</p>
+                </div>
+                <div class="footer">
+                  <div class="col-1">
+                    <p class="card-text">Ratings: 4.0</p>
+                    <div class="rating bottom">
+                      <div class="rating bottom">
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-inactive.svg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div>
+                      <img src="./assets/images/icons/people-grey.svg" />
+                      <p class="card-text bottom">31</p>
+                    </div>
+                    <div>
+                      <img src="./assets/images/icons/like-grey.svg" />
+                      <p class="card-text bottom">29</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div onclick="carouselCellOverlay('cell-1')" class="more">
+              <img
+                src="./assets/images/icons/details.svg"
+                class="details-button"
+              />
+            </div>
+          </div>
+
+          <div class="carousel-cell" id="#cell-2">
+            <img class="img" src="./assets/images/book-2.jpg" />
+            <div
+              class="carousel-cell__overlay"
+              onclick="closeOverlays('cell-2')"
+            >
+              <img
+                src="./assets/images/icons/close-details.svg"
+                class="close-overlay"
+              />
+              <div class="carousel-cell__overlay-text">
+                <p class="status green">Available</p>
+                <p class="title">Effective Python</p>
+                <p class="details truncate">Diomidis Spinellis<br /></p>
+                <div class="category">
+                  <p>Genre: Motivational</p>
+                  <p>Label: Self-help</p>
+                </div>
+                <div class="footer">
+                  <div class="col-1">
+                    <p class="card-text">Ratings: 4.0</p>
+                    <div class="rating bottom">
+                      <div class="rating bottom">
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-inactive.svg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div>
+                      <img src="./assets/images/icons/people-grey.svg" />
+                      <p class="card-text bottom">31</p>
+                    </div>
+                    <div>
+                      <img src="./assets/images/icons/like-grey.svg" />
+                      <p class="card-text bottom">29</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div onclick="carouselCellOverlay('cell-2')" class="more">
+              <img
+                src="./assets/images/icons/details.svg"
+                class="details-button"
+              />
+            </div>
+          </div>
+
+          <div class="carousel-cell" id="#cell-3">
+            <img class="img" src="./assets/images/book-3.jpg" />
+            <div
+              class="carousel-cell__overlay"
+              onclick="closeOverlays('cell-3')"
+            >
+              <img
+                src="./assets/images/icons/close-details.svg"
+                class="close-overlay"
+              />
+
+              <div class="carousel-cell__overlay-text">
+                <p class="status green">Available</p>
+                <p class="title">Built to Last</p>
+                <p class="details truncate">
+                  Jim Collins, Jerry I. Porras<br />
+                  2001
+                </p>
+                <div class="category">
+                  <p>Genre: Motivational</p>
+                  <p>Label: Creative, Self-help</p>
+                </div>
+                <div class="footer">
+                  <div class="col-1">
+                    <p class="card-text">Ratings: 4.0</p>
+                    <div class="rating bottom">
+                      <div class="rating bottom">
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-inactive.svg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div>
+                      <img src="./assets/images/icons/people-grey.svg" />
+                      <p class="card-text bottom">31</p>
+                    </div>
+                    <div>
+                      <img src="./assets/images/icons/like-grey.svg" />
+                      <p class="card-text bottom">29</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div onclick="carouselCellOverlay('cell-3')" class="more">
+              <img
+                src="./assets/images/icons/details.svg"
+                class="details-button"
+              />
+            </div>
+          </div>
+
+          <div class="carousel-cell" id="#cell-4">
+            <img class="img" src="./assets/images/book-4.jpg" />
+            <div
+              class="carousel-cell__overlay"
+              onclick="closeOverlays('cell-4')"
+            >
+              <img
+                src="./assets/images/icons/close-details.svg"
+                class="close-overlay"
+              />
+              <div class="carousel-cell__overlay-text">
+                <p class="status green">Available</p>
+                <p class="title">The Lean Startup</p>
+                <p class="details truncate">
+                  Eric Reis<br />
+                  2005
+                </p>
+                <div class="category">
+                  <p>Genre: Motivational</p>
+                  <p>Label: Self-help</p>
+                </div>
+                <div class="footer">
+                  <div class="col-1">
+                    <p class="card-text">Ratings: 4.0</p>
+                    <div class="rating bottom">
+                      <div class="rating bottom">
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-inactive.svg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div>
+                      <img src="./assets/images/icons/people-grey.svg" />
+                      <p class="card-text bottom">31</p>
+                    </div>
+                    <div>
+                      <img src="./assets/images/icons/like-grey.svg" />
+                      <p class="card-text bottom">29</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div onclick="carouselCellOverlay('cell-4')" class="more">
+              <img
+                src="./assets/images/icons/details.svg"
+                class="details-button"
+              />
+            </div>
+          </div>
+
+          <div class="carousel-cell" id="#cell-5">
+            <img class="img" src="./assets/images/book-5.jpg" />
+            <div
+              class="carousel-cell__overlay"
+              onclick="closeOverlays('cell-5')"
+            >
+              <img
+                src="./assets/images/icons/close-details.svg"
+                class="close-overlay"
+              />
+
+              <div class="carousel-cell__overlay-text">
+                <p class="status green">Available</p>
+                <p class="title">The Effective Engineer</p>
+                <p class="details truncate">
+                  Edmound Lau<br />
+                  2009
+                </p>
+                <div class="category">
+                  <p>Genre: Motivational</p>
+                  <p>Label: Self-help</p>
+                </div>
+                <div class="footer">
+                  <div class="col-1">
+                    <p class="card-text">Ratings: 4.0</p>
+                    <div class="rating bottom">
+                      <div class="rating bottom">
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-inactive.svg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div>
+                      <img src="./assets/images/icons/people-grey.svg" />
+                      <p class="card-text bottom">31</p>
+                    </div>
+                    <div>
+                      <img src="./assets/images/icons/like-grey.svg" />
+                      <p class="card-text bottom">29</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div onclick="carouselCellOverlay('cell-5')" class="more">
+              <img
+                src="./assets/images/icons/details.svg"
+                class="details-button"
+              />
+            </div>
+          </div>
+
+          <div class="carousel-cell" id="#cell-6">
+            <img class="img" src="./assets/images/book-1.jpg" />
+            <div
+              class="carousel-cell__overlay"
+              onclick="closeOverlays('cell-1')"
+            >
+              <img
+                src="./assets/images/icons/close-details.svg"
+                class="close-overlay"
+              />
+
+              <div class="carousel-cell__overlay-text">
+                <p class="status green">Available</p>
+                <p class="title">Big Magic</p>
+                <p class="details truncate">
+                  Elizabeth Gilbert<br />
+                  2014
+                </p>
+                <div class="category">
+                  <p>Genre: Motivational</p>
+                  <p>Label: Creative, Self-help</p>
+                </div>
+                <div class="footer">
+                  <div class="col-1">
+                    <p class="card-text">Ratings: 4.0</p>
+                    <div class="rating bottom">
+                      <div class="rating bottom">
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-inactive.svg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div>
+                      <img src="./assets/images/icons/people-grey.svg" />
+                      <p class="card-text bottom">31</p>
+                    </div>
+                    <div>
+                      <img src="./assets/images/icons/like-grey.svg" />
+                      <p class="card-text bottom">29</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div onclick="carouselCellOverlay('cell-6')" class="more">
+              <img
+                src="./assets/images/icons/details.svg"
+                class="details-button"
+              />
+            </div>
+          </div>
+
+          <div class="carousel-cell" id="#cell-7">
+            <img class="img" src="./assets/images/book-2.jpg" />
+            <div
+              class="carousel-cell__overlay"
+              onclick="closeOverlays('cell-2')"
+            >
+              <img
+                src="./assets/images/icons/close-details.svg"
+                class="close-overlay"
+              />
+
+              <div class="carousel-cell__overlay-text">
+                <p class="status green">Available</p>
+                <p class="title">Effective Python</p>
+                <p class="details truncate">Diomidis Spinellis<br /></p>
+                <div class="category">
+                  <p>Genre: Motivational</p>
+                  <p>Label: Self-help</p>
+                </div>
+                <div class="footer">
+                  <div class="col-1">
+                    <p class="card-text">Ratings: 4.0</p>
+                    <div class="rating bottom">
+                      <div class="rating bottom">
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-inactive.svg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div>
+                      <img src="./assets/images/icons/people-grey.svg" />
+                      <p class="card-text bottom">31</p>
+                    </div>
+                    <div>
+                      <img src="./assets/images/icons/like-grey.svg" />
+                      <p class="card-text bottom">29</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div onclick="carouselCellOverlay('cell-7')" class="more">
+              <img
+                src="./assets/images/icons/details.svg"
+                class="details-button"
+              />
+            </div>
+          </div>
+
+          <div class="carousel-cell" id="#cell-8">
+            <img class="img" src="./assets/images/book-3.jpg" />
+            <div
+              class="carousel-cell__overlay"
+              onclick="closeOverlays('cell-3')"
+            >
+              <img
+                src="./assets/images/icons/close-details.svg"
+                class="close-overlay"
+              />
+
+              <div class="carousel-cell__overlay-text">
+                <p class="status green">Available</p>
+                <p class="title">Built to Last</p>
+                <p class="details truncate">
+                  Jim Collins, Jerry I. Porras<br />
+                  2001
+                </p>
+                <div class="category">
+                  <p>Genre: Motivational</p>
+                  <p>Label: Creative, Self-help</p>
+                </div>
+                <div class="footer">
+                  <div class="col-1">
+                    <p class="card-text">Ratings: 4.0</p>
+                    <div class="rating bottom">
+                      <div class="rating bottom">
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-inactive.svg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div>
+                      <img src="./assets/images/icons/people-grey.svg" />
+                      <p class="card-text bottom">31</p>
+                    </div>
+                    <div>
+                      <img src="./assets/images/icons/like-grey.svg" />
+                      <p class="card-text bottom">29</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div onclick="carouselCellOverlay('cell-8')" class="more">
+              <img
+                src="./assets/images/icons/details.svg"
+                class="details-button"
+              />
+            </div>
+          </div>
+
+          <div class="carousel-cell" id="#cell-9">
+            <img class="img" src="./assets/images/book-4.jpg" />
+            <div
+              class="carousel-cell__overlay"
+              onclick="closeOverlays('cell-4')"
+            >
+              <img
+                src="./assets/images/icons/close-details.svg"
+                class="close-overlay"
+              />
+
+              <div class="carousel-cell__overlay-text">
+                <p class="status green">Available</p>
+                <p class="title">The Lean Startup</p>
+                <p class="details truncate">
+                  Eric Reis<br />
+                  2005
+                </p>
+                <div class="category">
+                  <p>Genre: Motivational</p>
+                  <p>Label: Self-help</p>
+                </div>
+                <div class="footer">
+                  <div class="col-1">
+                    <p class="card-text">Ratings: 4.0</p>
+                    <div class="rating bottom">
+                      <div class="rating bottom">
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-inactive.svg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div>
+                      <img src="./assets/images/icons/people-grey.svg" />
+                      <p class="card-text bottom">31</p>
+                    </div>
+                    <div>
+                      <img src="./assets/images/icons/like-grey.svg" />
+                      <p class="card-text bottom">29</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div onclick="carouselCellOverlay('cell-9')" class="more">
+              <img
+                src="./assets/images/icons/details.svg"
+                class="details-button"
+              />
+            </div>
+          </div>
+
+          <div class="carousel-cell" id="#cell-10">
+            <img class="img" src="./assets/images/book-5.jpg" />
+            <div
+              class="carousel-cell__overlay"
+              onclick="closeOverlays('cell-5')"
+            >
+              <img
+                src="./assets/images/icons/close-details.svg"
+                class="close-overlay"
+              />
+
+              <div class="carousel-cell__overlay-text">
+                <p class="status green">Available</p>
+                <p class="title">The Effective Engineer</p>
+                <p class="details truncate">
+                  Edmound Lau<br />
+                  2009
+                </p>
+                <div class="category">
+                  <p>Genre: Motivational</p>
+                  <p>Label: Creative, Self-help</p>
+                </div>
+                <div class="footer">
+                  <div class="col-1">
+                    <p class="card-text">Ratings: 4.0</p>
+                    <div class="rating bottom">
+                      <div class="rating bottom">
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-active.svg" />
+                        <img src="./assets/images/icons/star-inactive.svg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div>
+                      <img src="./assets/images/icons/people-grey.svg" />
+                      <p class="card-text bottom">31</p>
+                    </div>
+                    <div>
+                      <img src="./assets/images/icons/like-grey.svg" />
+                      <p class="card-text bottom">29</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div onclick="carouselCellOverlay('cell-10')" class="more">
+              <img
+                src="./assets/images/icons/details.svg"
+                class="details-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recently Added -->
+      <div class="section">
+        <div class="section-header container">
+          <h1 class="section-title">Recently Added</h1>
+          <hr class="divider" />
+        </div>
+
+        <!-- Cards -->
+        <div class="container cards">
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-5.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">The Effective Engineer</p>
+              <p class="card-text">Edmound Lau - 2009</p>
+              <p class="card-text">Motivational</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <div class="rating bottom">
+                      <img src="./assets/images/icons/star-active.svg" />
+                      <img src="./assets/images/icons/star-active.svg" />
+                      <img src="./assets/images/icons/star-active.svg" />
+                      <img src="./assets/images/icons/star-active.svg" />
+                      <img src="./assets/images/icons/star-inactive.svg" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-3.jpg" />
+
+            <div class="card-body">
+              <p class="card-status red">Borrowed</p>
+              <p class="card-title">Built to Last</p>
+              <p class="card-text">Jim Collins, Jerry I. Porras - 2001</p>
+              <p class="card-text">Business, Entrepreneurship</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-4.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">The Lean Startup</p>
+              <p class="card-text">Eric Reis - 2005</p>
+              <p class="card-text">Motivational</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-2.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">Effective Python</p>
+              <p class="card-text">Diomidis Spinellis</p>
+              <p class="card-text">Motivation</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-1.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">Big Magic</p>
+              <p class="card-text">Elizabeth Gilbert - 2014</p>
+              <p class="card-text">Motivational</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- All Books -->
+      <div class="section">
+        <div class="section-header container">
+          <h1 class="section-title">All Books</h1>
+          <hr class="divider" />
+        </div>
+
+        <!-- Cards -->
+        <div class="container cards">
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-5.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">The Effective Engineer</p>
+              <p class="card-text">Edmound Lau - 2009</p>
+              <p class="card-text">Motivational</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <div class="rating bottom">
+                      <img src="./assets/images/icons/star-active.svg" />
+                      <img src="./assets/images/icons/star-active.svg" />
+                      <img src="./assets/images/icons/star-active.svg" />
+                      <img src="./assets/images/icons/star-active.svg" />
+                      <img src="./assets/images/icons/star-inactive.svg" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-3.jpg" />
+
+            <div class="card-body">
+              <p class="card-status red">Borrowed</p>
+              <p class="card-title">Built to Last</p>
+              <p class="card-text">Jim Collins, Jerry I. Porras - 2001</p>
+              <p class="card-text">Business, Entrepreneurship</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-4.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">The Lean Startup</p>
+              <p class="card-text">Eric Reis - 2005</p>
+              <p class="card-text">Motivational</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-2.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">Effective Python</p>
+              <p class="card-text">Diomidis Spinellis</p>
+              <p class="card-text">Motivation</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-1.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">Big Magic</p>
+              <p class="card-text">Elizabeth Gilbert - 2014</p>
+              <p class="card-text">Motivational</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-2.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">Effective Python</p>
+              <p class="card-text">Diomidis Spinellis</p>
+              <p class="card-text">Motivation</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-5.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">The Effective Engineer</p>
+              <p class="card-text">Edmound Lau - 2009</p>
+              <p class="card-text">Motivational</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <div class="rating bottom">
+                      <img src="./assets/images/icons/star-active.svg" />
+                      <img src="./assets/images/icons/star-active.svg" />
+                      <img src="./assets/images/icons/star-active.svg" />
+                      <img src="./assets/images/icons/star-active.svg" />
+                      <img src="./assets/images/icons/star-inactive.svg" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-3.jpg" />
+
+            <div class="card-body">
+              <p class="card-status red">Borrowed</p>
+              <p class="card-title">Built to Last</p>
+              <p class="card-text">Jim Collins, Jerry I. Porras - 2001</p>
+              <p class="card-text">Business, Entrepreneurship</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-4.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">The Lean Startup</p>
+              <p class="card-text">Eric Reis - 2005</p>
+              <p class="card-text">Motivational</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-2.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">Effective Python</p>
+              <p class="card-text">Diomidis Spinellis</p>
+              <p class="card-text">Motivation</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-1.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">Big Magic</p>
+              <p class="card-text">Elizabeth Gilbert - 2014</p>
+              <p class="card-text">Motivational</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-2.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">Effective Python</p>
+              <p class="card-text">Diomidis Spinellis</p>
+              <p class="card-text">Motivation</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img" src="./assets/images/book-1.jpg" />
+
+            <div class="card-body">
+              <p class="card-status green">Available</p>
+              <p class="card-title">Big Magic</p>
+              <p class="card-text">Elizabeth Gilbert - 2014</p>
+              <p class="card-text">Motivational</p>
+              <div class="card-footer">
+                <div class="col-1">
+                  <p class="card-text">Ratings: 4.0</p>
+                  <div class="rating bottom">
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-active.svg" />
+                    <img src="./assets/images/icons/star-inactive.svg" />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div>
+                    <img src="./assets/images/icons/people.svg" />
+                    <p class="card-text bottom">31</p>
+                  </div>
+                  <div>
+                    <img src="./assets/images/icons/like.svg" />
+                    <p class="card-text bottom">29</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

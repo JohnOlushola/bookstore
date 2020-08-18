@@ -1,0 +1,9 @@
+/* Duplicate control */
+
+position: absolute;
+left: 36.53%;
+right: 41.21%;
+top: 80%;
+bottom: 13.12%;
+
+background: #000000;
