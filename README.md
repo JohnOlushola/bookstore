@@ -8,4 +8,4 @@ A simple book store web app. Built with HTML, CSS, and Vanilla JavaScript only. 
 
 ## Preview
 
-![Image of Yaktocat](assets/images/app-screenshot.png)
+![Preview](assets/images/app-screenshot.png)
