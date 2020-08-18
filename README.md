@@ -1,6 +1,6 @@
 # Book Store
 
-A simple book store web app. Built with HTML, CSS, and Vanilla JavaScript only. The
+A simple book store web app. Built with HTML, CSS, and Vanilla JavaScript only. 
 
 ## Dependencies
 
