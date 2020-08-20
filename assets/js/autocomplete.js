@@ -111,8 +111,11 @@ window.onload = () => {
 
 // search data
 let books = [
-  "Four Steps To The Epiphany Revised - James McJames",
-  "Four Steps To The Epiphany - James McEnroe",
-  "The Lean Start Up - Eric Reiss",
-  "No Excuses - Brian Tracy",
+  "The War Of Art - Steven Pressfield",
+  "Elon Musk - Ashley Vance",
+  "So Good They Cant Ignore You - Cal Newport",
+  "The Laws Of Human Nature - Robert Greene",
+  "Zero To One - Peter Thiel",
+  "I'm Judging You - Luvvie Ajayi",
+  "The 10X Rule - Grant Cardone",
 ];
